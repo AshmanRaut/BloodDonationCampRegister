@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <Tab fx:id="donorTab" text="Donor Management" closable="false"/>
+    <Tab fx:id="eventTab" text="Event Management" closable="false"/>
+    <Tab fx:id="bloodUnitTab" text="Blood Unit Management" closable="false"/>
+    <Tab fx:id="distributionTab" text="Distribution Management" closable="false"/>
+</TabPane>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DistributionController">
+    <top>
+        <VBox spacing="10" style="-fx-border-color: #cccccc; -fx-border-width: 0 0 1 0;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Distribution Information" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <Label text="Event:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="eventCombo" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Distribution Date:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <DatePicker fx:id="distributionDatePicker" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Hospital:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="hospitalField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1"/>
+
+                <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextArea fx:id="notesArea" wrapText="true" prefRowCount="2" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Load Available Units" onAction="#handleLoadAvailableUnits" style="-fx-padding: 8px 16px;"/>
+                <Button text="Add Distribution" onAction="#handleAddDistribution" style="-fx-padding: 8px 16px;"/>
+                <Button text="Update Distribution" onAction="#handleUpdateDistribution" style="-fx-padding: 8px 16px;"/>
+                <Button text="Delete Distribution" onAction="#handleDeleteDistribution" style="-fx-padding: 8px 16px;"/>
+                <Button text="Refresh" onAction="#handleRefresh" style="-fx-padding: 8px 16px;"/>
+                <Button text="Clear" onAction="#handleClear" style="-fx-padding: 8px 16px;"/>
+            </HBox>
+
+            <HBox spacing="20">
+                <Label fx:id="infoLabel" text="Ready" style="-fx-text-fill: #0066cc;"/>
+                <Label fx:id="availableUnitsLabel" text="Available Units: 0" style="-fx-text-fill: #009900;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL">
+            <TableView fx:id="distributionTable">
+                <columns>
+                    <TableColumn fx:id="distributionIdColumn" text="Distribution ID" prefWidth="100"/>
+                    <TableColumn fx:id="eventIdColumn" text="Event ID" prefWidth="80"/>
+                    <TableColumn fx:id="distributionDateColumn" text="Distribution Date" prefWidth="120"/>
+                    <TableColumn fx:id="hospitalColumn" text="Hospital" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <TableView fx:id="availableUnitsTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="unitIdColumn" text="Unit ID" prefWidth="80"/>
+                    <TableColumn fx:id="bloodGroupColumn" text="Blood Group" prefWidth="100"/>
+                    <TableColumn fx:id="volumeColumn" text="Volume (ml)" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </SplitPane>
+    </center>
+</BorderPane>

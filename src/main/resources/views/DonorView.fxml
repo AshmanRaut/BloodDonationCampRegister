@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DonorController">
+    <top>
+        <VBox spacing="10" style="-fx-border-color: #cccccc; -fx-border-width: 0 0 1 0;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Donor Information" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="emailField" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Blood Group:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="bloodGroupCombo" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <DatePicker fx:id="dateOfBirthPicker" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextArea fx:id="addressField" wrapText="true" prefRowCount="3" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button fx:id="addButton" text="Add Donor" onAction="#handleAddDonor" style="-fx-padding: 8px 16px;"/>
+                <Button fx:id="updateButton" text="Update Donor" onAction="#handleUpdateDonor" style="-fx-padding: 8px 16px;"/>
+                <Button fx:id="deleteButton" text="Delete Donor" onAction="#handleDeleteDonor" style="-fx-padding: 8px 16px;"/>
+                <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh" style="-fx-padding: 8px 16px;"/>
+                <Button fx:id="clearButton" text="Clear" onAction="#handleClear" style="-fx-padding: 8px 16px;"/>
+            </HBox>
+
+            <Label fx:id="infoLabel" text="Ready" style="-fx-text-fill: #0066cc;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="donorTable">
+            <columns>
+                <TableColumn fx:id="idColumn" text="Donor ID" prefWidth="80"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
+                <TableColumn fx:id="phoneColumn" text="Phone" prefWidth="120"/>
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="150"/>
+                <TableColumn fx:id="bloodGroupColumn" text="Blood Group" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
